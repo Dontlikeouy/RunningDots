@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RunningDots.SettingsPage"
+                Title="Settings">
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <StackLayout x:Name="SetSl">
+
+            <Grid>
+                <Grid.RowDefinitions >
+
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="AUTO"/>
+
+                </Grid.RowDefinitions>
+                <Label Padding="3,0,0,0" Margin="0,0,0,0" Text="PIN" FontSize="17" TextColor="Gray" Grid.Row="0"/>
+
+                <Picker x:Name="PINnumber" Margin="0,-6,0,0" Grid.Row="1">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:Byte}">
+                            <x:Byte>1</x:Byte>
+                            <x:Byte>2</x:Byte>
+                            <x:Byte>3</x:Byte>
+                            <x:Byte>4</x:Byte>
+                            <x:Byte>5</x:Byte>
+                            <x:Byte>6</x:Byte>
+                            <x:Byte>7</x:Byte>
+                            <x:Byte>8</x:Byte>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions >
+
+
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="AUTO"/>
+                </Grid.RowDefinitions>
+
+
+                <Label  Margin="0,-6,0,0" Padding="3,0,0,0" Text="Размер матрицы" FontSize="17" TextColor="Gray" Grid.Row="0" />
+
+                <Picker Margin="0,-6,0,0" x:Name="MatrixSize"  Grid.Row="1" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:Byte}">
+                            <x:Byte>4</x:Byte>
+                            <x:Byte>8</x:Byte>
+                            <x:Byte>16</x:Byte>
+                            <x:Byte>32</x:Byte>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions >
+
+
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="AUTO"/>
+                </Grid.RowDefinitions>
+
+
+                <Label Margin="0,-6,0,0" Padding="3,0,0,0" Text="Расположение данной матрицы от предыдущей. (Значение 'ничего' у обоих полей  означает, что данная матраца первая)" FontSize="17" TextColor="Gray" Grid.Row="0"/>
+
+                <Grid Grid.Row="1" Margin="0,-6,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Picker x:Name="LeftofRigth" >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Ничего</x:String>
+                                <x:String>Слева</x:String>
+                                <x:String>Справа</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Picker x:Name="UporDown"  Grid.Column="1" >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Ничего</x:String>
+                                <x:String>Снизу</x:String>
+                                <x:String>Сверху</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Grid>
+
+            </Grid>
+
+            <Button x:Name="Generate" Text="Сгенерировать" Grid.Row="7" Clicked="Generate_Clicked"  HeightRequest="50"></Button>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

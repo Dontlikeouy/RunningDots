@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RunningDots.ConnectFile"
+             Title="Выбор файла">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions >
+
+
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+
+            <Label Padding="3,0,0,0" Text="Имя файла" FontSize="17" TextColor="Gray" Grid.Row="0"/>
+            <Grid Margin="0,-6,0,0" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Entry  x:Name="NameFile" Grid.Column="0" />
+                <Button x:Name="SelectFile" Text="..." Clicked="SelectFile_Clicked"  Grid.Column="1"></Button>
+            </Grid>
+        </Grid>
+
+        <Button x:Name="SelectGlobal" Text="Выбрать" Clicked="SelectGlobal_Clicked"  Grid.Column="1"></Button>
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:tt="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
+
+             x:Class="RunningDots.МatrixСontrol"
+             Title="Управление светодиодами" >
+
+
+    <ContentPage.Content  >
+
+        <Grid x:Name="GaneralGrid">
+
+            <AbsoluteLayout x:Name="StayLa"  >
+                <StackLayout x:Name="FrizeScroll" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" >
+                    <Grid x:Name="AllControllsGrid"     >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="Auto"/>
+
+                            <RowDefinition Height="150"/>
+                        </Grid.RowDefinitions>
+
+
+
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="34"/>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+
+
+                            </Grid.ColumnDefinitions>
+
+
+
+                            <Entry x:Name="CodS_X" Margin="0,-5,0,0" Grid.Row="1" Grid.Column="0" Keyboard="Numeric"/>
+                            <Entry x:Name="CodS_Y" Margin="0,-5,0,0" Grid.Row="1" Grid.Column="1" Keyboard="Numeric"/>
+                            <Entry x:Name="CodS_Type" Margin="0,-5,0,0" Grid.Row="1" Grid.Column="2" />
+
+                            <Entry x:Name="CodS_Text1" Margin="0,-5,0,0" Grid.Row="1" Grid.Column="3"  />
+                            <Entry x:Name="CodS_Text2" Margin="0,-5,0,0" Grid.Row="1" Grid.Column="4"  />
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Text="Визуализировать" x:Name="PressToVisualize" Margin="0,-5,0,0" Grid.Row="0"  Clicked="PressToVisualize_Clicked"/>
+                        </Grid>
+
+                        <AbsoluteLayout Grid.Row="2"  x:Name="AbsoForBlack">
+                            <Grid x:Name="AbsoluGrid"   AbsoluteLayout.LayoutBounds="0,0,20,20" >
+                                <Grid x:Name="FrizeGrid"   >
+                                    <Grid.ColumnDefinitions >
+                                        <ColumnDefinition Width="AUTO"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions >
+                                        <RowDefinition Height="AUTO"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid x:Name="PanelGrid" BackgroundColor="Black" SizeChanged="PanelGrid_SizeChanged" >
+                                        <Grid.GestureRecognizers >
+                                            <TapGestureRecognizer   NumberOfTapsRequired="2" />
+                                        </Grid.GestureRecognizers>
+                                        <Rectangle x:Name="SelectPixel" Stroke="White" StrokeThickness="5" WidthRequest="20" HeightRequest="20"  />
+
+                                    </Grid>
+                                </Grid>
+
+                                <skia:SKCanvasView   x:Name="TuchVisual"  EnableTouchEvents="True"  Touch="SKCanvasView_Touch_1" /> 
+                            </Grid>
+
+
+
+                        </AbsoluteLayout>
+
+
+                        <Grid Grid.Row="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Text="Передовать данные через Bluetooth" x:Name="BluetoothConnetion" Margin="0,-5,0,0" Grid.Row="0"  Clicked="BluetoothConnetion_Clicked"/>
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+            </AbsoluteLayout>
+
+            <Grid x:Name="AllButtons"  VerticalOptions="End">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+
+                    </Grid.ColumnDefinitions>
+                    <Frame CornerRadius="3"  Padding="0" Margin="2,0,0,0">
+                        <StackLayout Orientation="Horizontal"  BackgroundColor="#E6E6E6" >
+
+                            <Label Margin="2,0,0,0" Text="R:"   VerticalOptions="Center" HorizontalOptions="Center" FontSize="15"  TextColor="Black"/>
+                            <Entry Margin="-7,0,0,0" x:Name="Color_R"      VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Keyboard="Numeric" />
+                            <Label Margin="-7,0,0,0" Text="G:" VerticalOptions="Center" HorizontalOptions="Center" FontSize="15"  TextColor="Black"/>
+                            <Entry Margin="-7,0,0,0" x:Name="Color_G"  VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Keyboard="Numeric" />
+                            <Label Margin="-7,0,0,0" Text="B:" VerticalOptions="Center" HorizontalOptions="Center" FontSize="15"  TextColor="Black"/>
+                            <Entry Margin="-7,0,0,0" x:Name="Color_B"    VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" Keyboard="Numeric"/>
+                            <Label Margin="-7,0,0,0" Text="Я:"  VerticalOptions="Center" HorizontalOptions="Center" FontSize="15"  TextColor="Black"/>
+                            <Entry Margin="-7,0,0,0" x:Name="Color_Biht"  Text="10"   VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="30" Keyboard="Numeric"/>
+
+
+
+                        </StackLayout>
+                    </Frame>
+                    <Grid   Grid.Column="1" VerticalOptions="Center" x:Name="Polz"  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <skia:SKCanvasView x:Name="Gradient"  PaintSurface="Gradient_PaintSurface"/>
+
+
+                        <skia:SKCanvasView x:Name="ColorTouch"  EnableTouchEvents="True"   Touch="ColorTouch_Touch" />
+
+
+                    </Grid>
+
+                </Grid>
+                <Grid Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition  Width="AUTO"/>
+                        <ColumnDefinition/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="DoubleLeft" Text="&lt;&lt;" Clicked="DoubleLeft_Clicked"  FontSize="16" FontAttributes="Bold" Grid.Column="0"/>
+
+                    <Button x:Name="GrawOrScroll" Text="Scroll" Clicked="GrawOrScroll_Clicked" Grid.Column="1"/>
+
+                    <Button x:Name="DoubleRigth" Text=">>" Clicked="DoubleRigth_Clicked" FontSize="16" FontAttributes="Bold"  Grid.Column="2"/>
+
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

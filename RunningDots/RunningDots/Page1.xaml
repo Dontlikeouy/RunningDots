@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RunningDots.Page1"
+             
+             Title="Connect" >
+
+
+    <ScrollView VerticalScrollBarVisibility="Never">
+
+        <Grid Padding="5,5,5,5" >
+
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*" />
+
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+
+            </Grid.RowDefinitions>
+
+            <Button x:Name="OnOff" Text="Подключится" Grid.Row="0" Grid.Column="0" Clicked="Button_Clicked_1"/>
+            <Button Text="Обновить Порт"  Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked"/>
+            <Picker Title="Порты" x:Name="Combobox" Grid.Row="2" Grid.Column="0"/>
+            <Button x:Name="LedOnOff" Text="Вкл" Grid.Row="3" Grid.Column="0" Clicked="LedOnOff_Clicked"/>
+
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
